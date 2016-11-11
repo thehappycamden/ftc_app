@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
  * Created by some guy "named" Nintendo8 on 11/6/2016.
  */
 
-@TeleOp(name="Drive Trigger")
+@TeleOp(name="8K_Trigger+Shooter")
 
 public class TriggerSpinnerTank extends OpMode{
 
@@ -19,6 +19,8 @@ public class TriggerSpinnerTank extends OpMode{
     DcMotor rightFRONT;
     DcMotor leftBACK;
     DcMotor rightBACK;
+    DcMotor shooterLeft;
+    DcMotor shooterRight;
 
     long startTime = 0;
     public void init() {
@@ -30,21 +32,38 @@ public class TriggerSpinnerTank extends OpMode{
         leftBACK = hardwareMap.dcMotor.get("motor-leftBACK");
         rightBACK = hardwareMap.dcMotor.get("motor-rightBACK");
 
+        //Shooters
+        shooterRight = hardwareMap.dcMotor.get("shooter-right");
+        shooterLeft = hardwareMap.dcMotor.get("shooter-left");
+
         //Reverse Mode
         leftFRONT.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBACK.setDirection(DcMotorSimple.Direction.REVERSE);
+        shooterLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);
     }
     @Override
     public void loop() {
         float leftDC = gamepad1.left_stick_y;
         float rightDC = gamepad1.right_stick_y;
-        float right_trigger = gamepad1.right_trigger;
+        float right_trigger1 = gamepad1.right_trigger;
         float left_trigger = gamepad1.left_trigger;
-    if (right_trigger>0){
-        rightFRONT.setPower(right_trigger);
-        rightBACK.setPower(right_trigger);
-        leftFRONT.setPower(-right_trigger);
-        leftBACK.setPower(-right_trigger);
+        float right_trigger2 = gamepad2.right_trigger;
+        boolean rightBumperPressed = gamepad2.right_bumper;
+
+        if (rightBumperPressed) {
+            shooterLeft.setPower(1);
+            shooterRight.setPower(1);
+        }
+        else {
+            shooterRight.setPower(right_trigger2);
+            shooterLeft.setPower(right_trigger2);
+        }
+    if (right_trigger1>0){
+        rightFRONT.setPower(right_trigger1);
+        rightBACK.setPower(right_trigger1);
+        leftFRONT.setPower(-right_trigger1);
+        leftBACK.setPower(-right_trigger1);
     }
     else {
     if (left_trigger==0){
