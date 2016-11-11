@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 
 /**
@@ -21,9 +22,13 @@ public class TriggerSpinnerTank extends OpMode{
     DcMotor rightBACK;
     DcMotor shooterLeft;
     DcMotor shooterRight;
+    Servo shooterFeeder;
 
     long startTime = 0;
     public void init() {
+        // Servo
+        shooterFeeder = hardwareMap.servo.get("shooter-servo");
+
         //Front Motors
         leftFRONT = hardwareMap.dcMotor.get("motor-left");
         rightFRONT = hardwareMap.dcMotor.get("motor-right");
@@ -39,8 +44,8 @@ public class TriggerSpinnerTank extends OpMode{
         //Reverse Mode
         leftFRONT.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBACK.setDirection(DcMotorSimple.Direction.REVERSE);
-        shooterLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        /*shooterLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);*/
     }
     @Override
     public void loop() {
@@ -49,9 +54,12 @@ public class TriggerSpinnerTank extends OpMode{
         float right_trigger1 = gamepad1.right_trigger;
         float left_trigger = gamepad1.left_trigger;
         float right_trigger2 = gamepad2.right_trigger;
-        boolean rightBumperPressed = gamepad2.right_bumper;
+        boolean rightBumper2 = gamepad2.right_bumper;
+        boolean leftBumper2 = gamepad2.left_bumper;
 
-        if (rightBumperPressed) {
+
+
+        if (rightBumper2) {
             shooterLeft.setPower(1);
             shooterRight.setPower(1);
         }
@@ -80,6 +88,14 @@ public class TriggerSpinnerTank extends OpMode{
 
     }
     }
-
+        if (leftBumper2)
+        {
+            if (right_trigger2>0) {
+                shooterFeeder.setPosition(1);
+            }
+        }
+        else {
+            shooterFeeder.setPosition(0);
+        }
     }
 }
