@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by some guy "named" Nintendo8 on 11/6/2016.
  */
 
-@TeleOp(name="8K_Trigger+Shooter")
+@TeleOp(name="8K_Trigger_NoShooter")
 
 public class TriggerSpinnerTank extends OpMode{
 
