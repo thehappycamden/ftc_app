@@ -10,8 +10,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 /**
  * Created by some guy "named" Nintendo8 on 11/6/2016.
  */
-
-@TeleOp(name="8K_Tank+Shooter")
+@Disabled //For now...
+@TeleOp(name="8K_Tank")
 
 public class TankDriveForJosh extends OpMode{
 
@@ -19,8 +19,8 @@ public class TankDriveForJosh extends OpMode{
     DcMotor rightFRONT;
     DcMotor leftBACK;
     DcMotor rightBACK;
-    DcMotor shooterLeft;
-    DcMotor shooterRight;
+    //DcMotor shooterLeft;
+    //DcMotor shooterRight;
 
     long startTime = 0;
     public void init() {
@@ -33,15 +33,15 @@ public class TankDriveForJosh extends OpMode{
         rightBACK = hardwareMap.dcMotor.get("motor-rightBACK");
 
         //Shooters
-        shooterRight = hardwareMap.dcMotor.get("shooter-right");
-        shooterLeft = hardwareMap.dcMotor.get("shooter-left");
+        //shooterRight = hardwareMap.dcMotor.get("shooter-right");
+        //shooterLeft = hardwareMap.dcMotor.get("shooter-left");
 
         //Reverse Mode
         leftFRONT.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBACK.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBACK.setDirection(DcMotorSimple.Direction.REVERSE);
-        shooterLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        //shooterLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        //shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);
     }
     @Override
     public void loop() {
@@ -55,12 +55,12 @@ public class TankDriveForJosh extends OpMode{
         boolean rightBumperPressed = gamepad2.right_bumper;
 
         if (rightBumperPressed) {
-            shooterLeft.setPower(1);
+            /*shooterLeft.setPower(1);
             shooterRight.setPower(1);
         }
         else {
             shooterRight.setPower(rightTrigger);
-            shooterLeft.setPower(rightTrigger);
+            shooterLeft.setPower(rightTrigger);*/
         }
     }
 }

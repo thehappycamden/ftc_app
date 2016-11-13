@@ -27,7 +27,7 @@ public class TriggerSpinnerTank extends OpMode{
     long startTime = 0;
     public void init() {
         // Servo
-        shooterFeeder = hardwareMap.servo.get("shooter-servo");
+        //shooterFeeder = hardwareMap.servo.get("shooter-servo");
 
         //Front Motors
         leftFRONT = hardwareMap.dcMotor.get("motor-left");
@@ -44,6 +44,7 @@ public class TriggerSpinnerTank extends OpMode{
         //Reverse Mode
         leftFRONT.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBACK.setDirection(DcMotorSimple.Direction.REVERSE);
+
         /*shooterLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);*/
     }
@@ -88,14 +89,16 @@ public class TriggerSpinnerTank extends OpMode{
 
     }
     }
-        if (leftBumper2)
+        /*if (leftBumper2)
         {
             if (right_trigger2>0) {
                 shooterFeeder.setPosition(1);
             }
+        else {
+        shooterFeeder.setPosition(0);    }
         }
         else {
             shooterFeeder.setPosition(0);
-        }
+        }*/
     }
 }
