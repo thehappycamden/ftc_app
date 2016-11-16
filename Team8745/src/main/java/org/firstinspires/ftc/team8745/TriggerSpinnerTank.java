@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by some guy "named" Nintendo8 on 11/6/2016.
  */
 
-@TeleOp(name="8K_Trigger+Shooter")
+@TeleOp(name="8K_Trigger_NoShooter")
 
 public class TriggerSpinnerTank extends OpMode{
 
@@ -27,7 +27,7 @@ public class TriggerSpinnerTank extends OpMode{
     long startTime = 0;
     public void init() {
         // Servo
-        //shooterFeeder = hardwareMap.servo.get("shooter-servo");
+        shooterFeeder = hardwareMap.servo.get("shooter-servo");
 
         //Front Motors
         leftFRONT = hardwareMap.dcMotor.get("motor-left");
@@ -45,8 +45,8 @@ public class TriggerSpinnerTank extends OpMode{
         leftFRONT.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBACK.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        /*shooterLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);*/
+        shooterLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);
     }
     @Override
     public void loop() {
@@ -89,7 +89,7 @@ public class TriggerSpinnerTank extends OpMode{
 
     }
     }
-        /*if (leftBumper2)
+        if (leftBumper2)
         {
             if (right_trigger2>0) {
                 shooterFeeder.setPosition(1);
@@ -99,6 +99,6 @@ public class TriggerSpinnerTank extends OpMode{
         }
         else {
             shooterFeeder.setPosition(0);
-        }*/
+        }
     }
 }
