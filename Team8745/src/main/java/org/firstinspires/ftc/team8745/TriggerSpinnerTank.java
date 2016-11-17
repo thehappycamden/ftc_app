@@ -94,7 +94,7 @@ public class TriggerSpinnerTank extends OpMode{
             if (right_trigger2>0) {
                 shooterFeeder.setPosition(1);
             }
-        else {
+        else{
         shooterFeeder.setPosition(0);    }
         }
         else {
