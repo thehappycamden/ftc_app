@@ -9,7 +9,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 /**
  * Created by rose on 11/25/16.
  */
-@TeleOp(name="Easy Beacons 8K")
+@TeleOp(name="8K Slow Mode")
+
 public class BeaconsAreEasy extends OpMode {
     DcMotor left_b;
     DcMotor left_f;
@@ -57,18 +58,22 @@ public class BeaconsAreEasy extends OpMode {
             left_f.setPower(-1);
             //For a certain distance, 90º?
         }*/
+
+        //copy
         if (up){
-            left_b.setPower(0.5);
-            left_f.setPower(0.5);
-            right_b.setPower(0.5);
-            right_f.setPower(0.5);
+            left_b.setPower(.3333);
+            left_f.setPower(.3333);
+            right_b.setPower(.3333);
+            right_f.setPower(.3333);
         }
+
         if (down){
-            left_b.setPower(-0.5);
-            left_f.setPower(-0.5);
-            right_b.setPower(-0.5);
-            right_f.setPower(-0.5);
+            left_b.setPower(-.3333);
+            left_f.setPower(-.3333);
+            right_b.setPower(-.3333);
+            right_f.setPower(-.3333);
         }
+
         if (!up){
         if(!down){
         left_b.setPower(l_stick);
@@ -76,4 +81,6 @@ public class BeaconsAreEasy extends OpMode {
         right_b.setPower(r_stick);
         right_f.setPower(r_stick);}}
     }
+
+  //stop here
 }
