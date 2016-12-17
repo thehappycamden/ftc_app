@@ -32,55 +32,54 @@ public class BeaconsAreEasy extends OpMode {
 
     @Override
     public void loop() {
-        boolean r_bumper = gamepad1.right_bumper;
-        boolean l_bumper = gamepad1.left_bumper;
         float r_stick = gamepad1.right_stick_y;
         float l_stick = gamepad1.left_stick_y;
-        boolean a_button = gamepad1.a;
         boolean up = gamepad1.dpad_up;
         boolean down = gamepad1.dpad_down;
 
         //Tank
 
-
-        //Easy Beacons. Need a timing function or something.
-        /*if (r_bumper){
-            left_b.setPower(1);
-            left_f.setPower(1);
-            right_b.setPower(-1);
-            right_f.setPower(-1);
-            //For a certain distance, 90º? Need to figure this out with 4 in diameter wheels or IMU.
+        if (l_stick>0) {
+            left_b.setPower(l_stick);
+            left_f.setPower(l_stick);
+            right_b.setPower(r_stick);
+            right_f.setPower(r_stick);
         }
-        if (l_bumper){
-            right_b.setPower(1);
-            right_f.setPower(1);
-            left_b.setPower(-1);
-            left_f.setPower(-1);
-            //For a certain distance, 90º?
-        }*/
-
-        //copy
-        if (up){
+        else {if (up){
             left_b.setPower(.3333);
             left_f.setPower(.3333);
             right_b.setPower(.3333);
             right_f.setPower(.3333);
         }
-
-        if (down){
-            left_b.setPower(-.3333);
-            left_f.setPower(-.3333);
-            right_b.setPower(-.3333);
-            right_f.setPower(-.3333);
+            if (down){
+                left_b.setPower(-.3333);
+                left_f.setPower(-.3333);
+                right_b.setPower(-.3333);
+                right_f.setPower(-.3333);
+            }
+        }
+        if (r_stick>0) {
+            left_b.setPower(l_stick);
+            left_f.setPower(l_stick);
+            right_b.setPower(r_stick);
+            right_f.setPower(r_stick);
+        }
+        else {if (up){
+            left_b.setPower(.3333);
+            left_f.setPower(.3333);
+            right_b.setPower(.3333);
+            right_f.setPower(.3333);
+        }
+            if (down){
+                left_b.setPower(-.3333);
+                left_f.setPower(-.3333);
+                right_b.setPower(-.3333);
+                right_f.setPower(-.3333);
+            }
         }
 
-        if (!up){
-        if(!down){
-        left_b.setPower(l_stick);
-        left_f.setPower(l_stick);
-        right_b.setPower(r_stick);
-        right_f.setPower(r_stick);}}
+
     }
 
-  //stop here
+
 }
