@@ -17,6 +17,7 @@ public class Square extends OpMode {
     DcMotor right_b;
     DcMotor right_f;
 
+
     public void init() {
         //right
         right_b = hardwareMap.dcMotor.get("motor-rightBACK");
@@ -32,13 +33,26 @@ public class Square extends OpMode {
     @Override
     public void loop() {
 
-    float r_stick = gamepad1.right_stick_y*gamepad1.right_stick_y;
-    float l_stick = gamepad1.left_stick_y*gamepad1.left_stick_y;
+    float r_stick = gamepad1.right_stick_y;
+    float l_stick = gamepad1.left_stick_y;
 
+    float l_square = gamepad1.left_stick_y*gamepad1.left_stick_y;
+    float r_square = gamepad1.right_stick_y*gamepad1.right_stick_y;
+
+    boolean up = gamepad1.dpad_up;
+    boolean down = gamepad1.dpad_down;
+
+    if (!down){
     left_b.setPower(l_stick);
     left_f.setPower(l_stick);
     right_b.setPower(r_stick);
-    right_f.setPower(r_stick);
+    right_f.setPower(r_stick);}
+    else {
+        left_b.setPower(l_square);
+        left_f.setPower(l_square);
+        right_b.setPower(r_square);
+        right_f.setPower(r_square);
+    }
 
 
 

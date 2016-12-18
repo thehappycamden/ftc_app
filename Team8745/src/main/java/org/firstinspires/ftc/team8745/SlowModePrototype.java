@@ -15,6 +15,8 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 created by rose on 12/14
  */
 
+@Disabled
+
 @TeleOp(name="8K_Tank_Shooter")
 
 public class SlowModePrototype extends OpMode{

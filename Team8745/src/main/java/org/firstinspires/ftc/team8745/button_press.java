@@ -1,12 +1,14 @@
 package org.firstinspires.ftc.team8745;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 /**
  * Created by rose on 12/18/16.
  */
+@TeleOp(name="8K Square")
 
 public class button_press extends OpMode {
     DcMotor left_b;

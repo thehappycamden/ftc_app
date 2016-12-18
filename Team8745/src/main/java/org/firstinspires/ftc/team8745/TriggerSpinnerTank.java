@@ -13,6 +13,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  */
 
 @TeleOp(name="8K_Trigger_NoShooter")
+@Disabled
 
 public class TriggerSpinnerTank extends OpMode{
 

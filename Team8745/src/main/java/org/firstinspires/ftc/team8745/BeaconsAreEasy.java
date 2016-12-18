@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.team8745;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -9,6 +10,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 /**
  * Created by rose on 11/25/16.
  */
+
+@Disabled
 @TeleOp(name="8K Slow Mode")
 
 public class BeaconsAreEasy extends OpMode {
