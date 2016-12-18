@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.team8745;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -9,21 +8,20 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 /**
  * Created by some guy "named" Nintendo8 on 11/6/2016.
  */
-@Disabled
 @TeleOp(name="Katamari One")
 public class Arcade_Drive_Katamari extends OpMode {
-    DcMotor left_f;
+    DcMotor leftFRONT;
     DcMotor rightFRONT;
     DcMotor leftBACK;
     DcMotor rightBACK;
     Boolean switcher = false;
     // Will switch with every loop using this boolean, hopefully
     public void init() {
-        left_f = hardwareMap.dcMotor.get("motor-left");
+        leftFRONT = hardwareMap.dcMotor.get("motor-left");
         rightFRONT = hardwareMap.dcMotor.get("motor-right");
         leftBACK = hardwareMap.dcMotor.get("motor-leftBACK");
         rightBACK = hardwareMap.dcMotor.get("motor-rightBACK");
-        left_f.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftFRONT.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBACK.setDirection(DcMotorSimple.Direction.REVERSE);
 
     }
@@ -40,7 +38,7 @@ public class Arcade_Drive_Katamari extends OpMode {
         // Other Stuff
 
         if (switcher = true) {
-            left_f.setPower(left_stick_y);
+            leftFRONT.setPower(left_stick_y);
             rightFRONT.setPower(left_stick_y);
         }
 
@@ -48,7 +46,7 @@ public class Arcade_Drive_Katamari extends OpMode {
 
     if(left_stick_x>0) {
         if (switcher = false){
-            left_f.setPower(left_stick_x);
+            leftFRONT.setPower(left_stick_x);
             rightFRONT.setPower(-left_stick_x);
         } }
 
@@ -56,7 +54,7 @@ public class Arcade_Drive_Katamari extends OpMode {
 
     if(left_stick_x<0){
         if (switcher == false){
-            left_f.setPower(-left_stick_x);
+            leftFRONT.setPower(-left_stick_x);
             rightFRONT.setPower(left_stick_x);
         } }
 
@@ -64,27 +62,27 @@ public class Arcade_Drive_Katamari extends OpMode {
 
     if(left_stick_y==0) {
         if (left_stick_x < 0){
-            left_f.setPower(-left_stick_x);
+            leftFRONT.setPower(-left_stick_x);
             rightFRONT.setPower(left_stick_x);
         }
         else {
-            left_f.setPower (left_stick_x);
+            leftFRONT.setPower (left_stick_x);
             rightFRONT.setPower (-left_stick_x);
         } }
 
     if(switcher = true) {
-        left_f.setPower(left_stick_y);
+        leftFRONT.setPower(left_stick_y);
         rightFRONT.setPower(left_stick_y);
         switcher = false;}
 
 // If no x input (for emergency zooming forward
     if (left_stick_x==0){
         rightFRONT.setPower(left_stick_y);
-        left_f.setPower (left_stick_y);}
+        leftFRONT.setPower (left_stick_y);}
 
     //Back Wheels
     rightBACK.setPower(rightFRONT.getPower());
-    leftBACK.setPower(left_f.getPower());
+    leftBACK.setPower(leftFRONT.getPower());
 
 
 }}
