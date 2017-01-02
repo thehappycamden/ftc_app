@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.team8745;
+package org.firstinspires.ftc.team8745.Cory;
 
 import com.qualcomm.hardware.adafruit.BNO055IMU;
 import com.qualcomm.hardware.adafruit.JustLoggingAccelerationIntegrator;
