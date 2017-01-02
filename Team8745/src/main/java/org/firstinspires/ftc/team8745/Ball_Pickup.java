@@ -5,19 +5,19 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-
 /**
  * Created by rose on 1/2/17.
  */
-@TeleOp(name="8K 50% Speed")
+@TeleOp(name="8K Ball Pickup")
 
 
-public class fifty_speed extends OpMode {
+public class Ball_Pickup extends OpMode {
 
     DcMotor left_b;
     DcMotor left_f;
     DcMotor right_b;
     DcMotor right_f;
+    DcMotor motor_pickup;
     public void init() {
         //right
         right_b = hardwareMap.dcMotor.get("motor-rightBACK");
@@ -26,6 +26,9 @@ public class fifty_speed extends OpMode {
         //left
         left_b = hardwareMap.dcMotor.get("motor-leftBACK");
         left_f = hardwareMap.dcMotor.get("motor-left");
+
+        //pickup
+        motor_pickup = hardwareMap.dcMotor.get("motor-pickup");
 
         //reverse mode
         left_b.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -41,6 +44,8 @@ public class fifty_speed extends OpMode {
         float l_stick = gamepad1.left_stick_y;
         double r_slow = gamepad1.right_stick_y*.5;
         double l_slow = gamepad1.left_stick_y*.5;
+
+        boolean r_bumper2 = gamepad2.right_bumper;
 
         boolean down = gamepad1.dpad_down;
 
@@ -66,6 +71,13 @@ public class fifty_speed extends OpMode {
             left_f.setPower(l_slow);
             left_b.setPower(l_slow);
 
+        }
+
+        if (r_bumper2){
+            motor_pickup.setPower(1.0);
+        }
+        else {
+            motor_pickup.setPower(0.0);
         }
 
     }
