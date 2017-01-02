@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 @TeleOp(name="8K 50% Speed")
 
 
-public class fifty_speed {
+public class fifty_speed extends OpMode {
 
     DcMotor left_b;
     DcMotor left_f;
@@ -39,8 +39,8 @@ public class fifty_speed {
     public void loop() {
         float r_stick = gamepad1.right_stick_y;
         float l_stick = gamepad1.left_stick_y;
-        float r_slow = gamepad1.right_stick_y*.5;
-        float l_slow = gamepad1.left_stick_y*.5;
+        double r_slow = gamepad1.right_stick_y*.5;
+        double l_slow = gamepad1.left_stick_y*.5;
 
         boolean down = gamepad1.dpad_down;
 
