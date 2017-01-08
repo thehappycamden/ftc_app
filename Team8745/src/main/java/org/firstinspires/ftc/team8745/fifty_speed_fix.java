@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-
+//Here
 /**
  * Created by some guy "named" Nintendo8 on 11/6/2016.
  */
@@ -93,9 +93,9 @@ public class fifty_speed_fix extends OpMode {
         boolean down1 = gamepad1.dpad_down;
 
         boolean down_click = false;
-        down_click = wasDown&&!down;
+        down_click = wasDown&&!down1;
 
-        wasDown = down;
+        wasDown = down1;
 
         if (down_click){
             slowMode = !slowMode;
