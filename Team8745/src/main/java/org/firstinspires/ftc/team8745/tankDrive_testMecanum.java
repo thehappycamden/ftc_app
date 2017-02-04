@@ -36,7 +36,6 @@ public class tankDrive_testMecanum extends OpMode{
         return me;
     }
     @Override
-
     public void loop() {
         float r_stick = gamepad1.right_stick_y;
         float l_stick = gamepad1.left_stick_y;
