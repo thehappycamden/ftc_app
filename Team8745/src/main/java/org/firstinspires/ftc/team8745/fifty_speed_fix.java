@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.team8745;
 
+
+
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -15,10 +17,11 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 /**
  * Created by some guy "named" Nintendo8 on 11/6/2016.
  */
-//@Disabled //For now...
+
 @TeleOp(name="8K_Fifty_Speed_Test")
 
 public class fifty_speed_fix extends OpMode {
+
 
     DcMotor left_f;
     DcMotor right_f;
@@ -71,15 +74,9 @@ public class fifty_speed_fix extends OpMode {
 
     boolean slowMode = false;
 
+
     @Override
     public void loop() {
-        //float leftDC = gamepad1.left_stick_y;
-        //float rightDC = gamepad1.right_stick_y;
-       /* leftFRONT.setPower(leftDC);
-        rightFRONT.setPower(rightDC);
-        leftBACK.setPower(leftDC);
-        rightBACK.setPower(rightDC);
-       */
         float rightTrigger = gamepad2.right_trigger;
         boolean rightBumperPressed = gamepad2.right_bumper;
         float leftTrigger = gamepad2.left_trigger;
@@ -120,13 +117,13 @@ public class fifty_speed_fix extends OpMode {
         shooterServo.setPosition((leftTrigger * (-kServoRange)) + kServoNullPosition);
         telemetry.addData("Servo Position", shooterServo.getPosition());
 
-//        if (rightBumperPressed) {
-//            shooterLeft.setPower(1.0);
-//            shooterRight.setPower(1.0);
-//        } else {
-//            shooterRight.setPower(rightTrigger * kShootPower);
-//            shooterLeft.setPower(rightTrigger * kShootPower);
-//        }
+/*        if (rightBumperPressed) {
+          shooterLeft.setPower(1.0);
+          shooterRight.setPower(1.0);
+          } else {
+          shooterRight.setPower(rightTrigger * kShootPower);
+          shooterLeft.setPower(rightTrigger * kShootPower);
+       }*/
 
 
 

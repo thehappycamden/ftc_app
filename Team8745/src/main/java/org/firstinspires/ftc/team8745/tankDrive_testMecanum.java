@@ -1,23 +1,18 @@
 package org.firstinspires.ftc.team8745;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.*;
-import com.qualcomm.robotcore.util.Range;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 /**
- * Created by rose on 1/19/17.
+ * Created by rose on 2/3/17.
  */
-
-@TeleOp(name="8K_First_Mecanum_Test")
-
-public class Mecanum_ForFun extends OpMode {
-
-    DcMotor left_f;
-    DcMotor right_f;
+@TeleOp(name = "Tank_testMecanum")
+public class tankDrive_testMecanum extends OpMode{
     DcMotor left_b;
+    DcMotor left_f;
     DcMotor right_b;
+    DcMotor right_f;
 
     public void init() {
         //Front Motors
@@ -29,7 +24,6 @@ public class Mecanum_ForFun extends OpMode {
         right_b = hardwareMap.dcMotor.get("motor-rightBack");
 
     }
-    //boolean was_R = false;
     boolean sideMode = false;
     public static int test(float stickL, float stick1, float stick2) {
         int me = 0;
@@ -40,8 +34,7 @@ public class Mecanum_ForFun extends OpMode {
             me = 0;
         }
         return me;
-    }
-    @Override
+    }@Override
 
     public void loop() {
         float r_stick = gamepad1.right_stick_y;
@@ -54,23 +47,14 @@ public class Mecanum_ForFun extends OpMode {
         float neg_l = l_stick_x*(0-1);
         float neg_r = r_stick_x*(0-1);
 
-        /*boolean r_click = false;
-        r_click = was_R&&!r_Bumper;
 
-        was_R = r_Bumper;
 
-        if (r_click){
-            sideMode = !sideMode;
-        }*/
-
-        //Comment lines from here to
         if (test(l_stick_x,l_stick,r_stick) == 1) {
             sideMode = true;
         }
         else {
             sideMode = false;
         }
-        //here to switch back to right bumper toggle if this doesn't work.
 
         if (!sideMode){
             left_b.setPower(l_stick);
@@ -86,9 +70,11 @@ public class Mecanum_ForFun extends OpMode {
         }
 
     }
+
+
+
+
+
+
+
 }
-
-
-
-
-
