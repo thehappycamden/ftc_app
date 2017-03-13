@@ -118,6 +118,7 @@ public class TankDriveShooter extends OpMode {
         telemetry.addData("shooterPower", kShootPower);
         telemetry.addData("deltaT", deltat);
         telemetry.update();
+
         left_b.setPower(gamepad1.left_stick_y);
         left_f.setPower(gamepad1.left_stick_y);
         right_b.setPower(gamepad1.right_stick_y);

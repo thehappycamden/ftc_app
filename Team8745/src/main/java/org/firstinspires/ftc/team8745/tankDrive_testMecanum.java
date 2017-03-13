@@ -3,6 +3,7 @@ package org.firstinspires.ftc.team8745;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 /**
  * Created by rose on 2/3/17.
@@ -23,6 +24,9 @@ public class tankDrive_testMecanum extends OpMode{
         left_b = hardwareMap.dcMotor.get("motor-leftBack");
         right_b = hardwareMap.dcMotor.get("motor-rightBack");
 
+        //Reverse Mode
+        left_b.setDirection(DcMotorSimple.Direction.REVERSE);
+        left_f.setDirection(DcMotorSimple.Direction.REVERSE);
     }
     boolean sideMode = false;
     public static int test(float stickL, float stick1, float stick2) {
@@ -68,7 +72,5 @@ public class tankDrive_testMecanum extends OpMode{
             right_b.setPower(l_stick_x);
             left_b.setPower(neg_l);
         }
-
     }
-    
 }
