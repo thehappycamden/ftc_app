@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 /**
  * Created by rose on 2/3/17.
  */
-@TeleOp(name = "Tank_testMecanum")
+@TeleOp(name = "Mecanum_During_offSeason")
 public class tankDrive_testMecanum extends OpMode{
     DcMotor left_b;
     DcMotor left_f;
