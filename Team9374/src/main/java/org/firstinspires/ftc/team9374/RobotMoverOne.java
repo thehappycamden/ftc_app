@@ -29,15 +29,9 @@ public class RobotMoverOne extends OpMode{
         leftBACK = hardwareMap.dcMotor.get("motor-leftBACK");
         rightBACK = hardwareMap.dcMotor.get("motor-rightBACK");
 
-        //Shooters
-        shooterRight = hardwareMap.dcMotor.get("shooter-right");
-        shooterLeft = hardwareMap.dcMotor.get("shooter-left");
-
         //Reverse Mode
         leftFRONT.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBACK.setDirection(DcMotorSimple.Direction.REVERSE);
-        shooterLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);
     }
     @Override
     public void loop() {
